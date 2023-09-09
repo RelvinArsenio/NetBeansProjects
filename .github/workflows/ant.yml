@@ -1,0 +1,37 @@
+# This workflow will build a Java project with Ant
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-ant
+
+name: Java CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up JDK 8
+      uses: actions/setup-java@v3
+      with:
+        java-version: '8'
+        distribution: 'temurin'
+    - name: Build Dt_pasien project with Ant
+      run: ant -noinput -buildfile Dt_pasien/build.xml
+
+    - name: Build JavaGUI10 project with Ant
+      run: ant -noinput -buildfile JavaGUI10/build.xml
+
+    - name: Build Prak_03 project with Ant
+      run: ant -noinput -buildfile Prak_03/build.xml
+    
+    - name: Build Service project with Ant
+      run: ant -noinput -buildfile Service/build.xml
+
+    - name: Build tagihan_sekolah project with Ant
+      run: ant -noinput -buildfile tagihan_sekolah/build.xml
