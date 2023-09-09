@@ -21,6 +21,15 @@ jobs:
       with:
         java-version: '8'
         distribution: 'temurin'
+    - name: Build Dt_pasien project with Ant
+      run: ant -noinput -buildfile Dt_pasien/build.xml
+
+    - name: Build JavaGUI10 project with Ant
+      run: ant -noinput -buildfile JavaGUI10/build.xml
+
+    - name: Build Prak_03 project with Ant
+      run: ant -noinput -buildfile Prak_03/build.xml
+    
     - name: Build Service project with Ant
       run: ant -noinput -buildfile Service/build.xml
 
