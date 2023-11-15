@@ -28,4 +28,4 @@ Untuk menginstal dan menjalankan proyek-proyek ini, ikuti langkah-langkah beriku
 5. Ikuti instruksi pada aplikasi GUI untuk memasukkan input atau melakukan operasi yang diinginkan.
 
 ## Lisensi
-Proyek-proyek ini dilisensikan di bawah [Microsoft Reciprocal License](./LICENSE).
+Proyek-proyek ini dilisensikan di bawah [Eclipse Public License 2.0](./LICENSE).
