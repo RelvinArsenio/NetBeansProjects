@@ -54,7 +54,7 @@ public class Pelanggan extends javax.swing.JFrame {
 
                     try (ResultSet rs = statement.executeQuery()) {
                         if (rs.next()) {
-                            idPelanggan.setText(rs.getString("id"));
+                            idPelanggan.setText(rs.getString("id_jasa"));
                             namaPelanggan.setText(rs.getString("nama"));
                             noTelp.setText(rs.getString("notelp"));
                             cbjnsService.setSelectedItem(rs.getString("jenis_service"));
@@ -87,7 +87,7 @@ public class Pelanggan extends javax.swing.JFrame {
             try (PreparedStatement statement = connection.prepareStatement(sql);
                     ResultSet rs = statement.executeQuery()) {
                 while (rs.next()) {
-                    String id = rs.getString("id");
+                    String id = rs.getString("id_jasa");
                     String siswaId = rs.getString("nama");
                     String nama_siswa = rs.getString("notelp");
                     String jenis_tagihan = rs.getString("jenis_service");
@@ -345,7 +345,7 @@ public class Pelanggan extends javax.swing.JFrame {
     private void btSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSimpanActionPerformed
         // TODO add your handling code here:
         try (Connection connection = Koneksi.openConnect()) {
-            String sql = "INSERT INTO jasa (id, nama, notelp, jenis_service, tarif_service, biaya_tambahan)\n"
+            String sql = "INSERT INTO jasa (id_jasa, nama, notelp, jenis_service, tarif_service, biaya_tambahan)\n"
                     + "VALUES (?, ?, ?, ?, ?, ?)";
             try (PreparedStatement stmt = connection.prepareStatement(sql)) {
                 stmt.setString(1, idPelanggan.getText());
@@ -399,7 +399,7 @@ public class Pelanggan extends javax.swing.JFrame {
     private void btDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btDeleteActionPerformed
         // TODO add your handling code here:
         try (Connection connection = Koneksi.openConnect()) {
-            String sql = "DELETE FROM jasa WHERE `jasa`.`id` = ?";
+            String sql = "DELETE FROM jasa WHERE `jasa`.`id_jasa` = ?";
             try (PreparedStatement stmt = connection.prepareStatement(sql)) {
                 stmt.setString(1, idPelanggan.getText());
 
@@ -423,7 +423,7 @@ public class Pelanggan extends javax.swing.JFrame {
     private void btUbahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btUbahActionPerformed
         // TODO add your handling code here:
         try (Connection connection = Koneksi.openConnect()) {
-            String sql = "UPDATE `jasa` SET `nama` = ?, `notelp` = ?, `jenis_service` = ?, `tarif_service` = ?, `biaya_tambahan` = ? WHERE `id` = ?";
+            String sql = "UPDATE `jasa` SET `nama` = ?, `notelp` = ?, `jenis_service` = ?, `tarif_service` = ?, `biaya_tambahan` = ? WHERE `id_jasa` = ?";
             try (PreparedStatement stmt = connection.prepareStatement(sql)) {
                 stmt.setString(1, namaPelanggan.getText());
                 stmt.setString(2, noTelp.getText());
